@@ -22,3 +22,7 @@ Small script to get/create mongodb document using an evercookie
 	    $('body').everMongo(options);
 	</script>
 
+
+## TODO
+
+- put evercookie in its own directory (evercookie.js currently has trouble getting it's required files when it's not in the root directory)

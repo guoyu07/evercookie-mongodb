@@ -15,6 +15,7 @@
             that.mongoData = null;
             that.mongoFullUrl = that.options.mongoUrl + 'databases/' + that.options.db + '/collections/' + that.options.collection + '/';
             that.run();
+            return that;
         },
         run: function(){
             var that = this;
@@ -33,11 +34,13 @@
             if (that.mongoData) return that.mongoData;
         
             if (create) {
-                that.newMongoDoc( that.setMongoData );
+                that.newMongoDoc( function(data) {
+                    that.setMongoData(that, data)
+                });
             } else {
                 // use EID to get info
                 that.getMongoDataByEID( function(data) {
-                    that.setMongoData(data);
+                    that.setMongoData(that, data);
                 });
             }
         },
@@ -51,10 +54,9 @@
                 success: callback
             });
         },
-        setMongoData: function(mongoData) {
-            var that = this;
+        setMongoData: function(that, mongoData) {
             that.mongoData = mongoData;
-            if (!that.evercookieID) {
+            if (!that.evercookieID && mongoData._id.$oid) {
                 that.evercookieID = mongoData._id.$oid;
                 that.ec.set("eid", that.evercookieID);
             }
