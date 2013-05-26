@@ -26,3 +26,8 @@ Small script to get/create mongodb document using an evercookie
 ## TODO
 
 - put evercookie in its own directory (evercookie.js currently has trouble getting it's required files when it's not in the root directory)
+- Fix known issues	
+
+## Known Issues
+
+- it's creating a new document and new evercookie (i think) each time. This obviously defeats the purpose of having evercookie. need to get this fixed asap
