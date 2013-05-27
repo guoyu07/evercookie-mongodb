@@ -65,7 +65,7 @@
 var _ec_history = 1; // CSS history knocking or not .. can be network intensive
 var _ec_tests = 10;//1000;
 var _ec_debug = 0;
-var _ec_dir = "/evercookie/";
+var _ec_dir = _ec_dir || "/evercookie/";
 
 function _ec_dump(arr, level)
 {
@@ -530,7 +530,7 @@ this.evercookie_silverlight = function(name, value) {
      * Ok. so, I tried doing this the proper dom way, but IE chokes on appending anything in object tags (including params), so this
      * is the best method I found. Someone really needs to find a less hack-ish way. I hate the look of this shit.
     */
-        var source = "evercookie.xap";
+        var source = _ec_dir + "evercookie.xap";
         var minver = "4.0.50401.0";
         
         var initParam = "";
