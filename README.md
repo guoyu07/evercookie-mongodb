@@ -3,6 +3,11 @@ evercookie-mongodb
 
 Small script to get/create mongodb document using an evercookie
 
+## Installation
+
+1. Install into root directory (otherwise, you'll need to edit `var _ec_dir` in `evercookie/evercookie.js`)
+- follow the example below
+
 ## Example
 
 	<script type="text/javascript" src="/evercookie/jquery-1.4.2.min.js"></script>
@@ -29,4 +34,4 @@ Small script to get/create mongodb document using an evercookie
 
 ## Known Issues
 
-- it's creating a new document and new cookie (i think) everytime. This is obviously not what we want...
+- none
