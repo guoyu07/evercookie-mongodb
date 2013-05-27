@@ -65,6 +65,7 @@
 var _ec_history = 1; // CSS history knocking or not .. can be network intensive
 var _ec_tests = 10;//1000;
 var _ec_debug = 0;
+var _ec_dir = "/evercookie/";
 
 function _ec_dump(arr, level)
 {
@@ -300,7 +301,7 @@ this.evercookie_cache = function(name, value)
 		var img = new Image();
 		img.style.visibility = 'hidden';
 		img.style.position = 'absolute';
-		img.src = 'evercookie_cache.php?name=' + name;
+		img.src = _ec_dir + 'evercookie_cache.php?name=' + name;
 	}
 	else
 	{
@@ -311,7 +312,7 @@ this.evercookie_cache = function(name, value)
 		document.cookie = 'evercookie_cache=; expires=Mon, 20 Sep 2010 00:00:00 UTC; path=/';
 
 		$.ajax({
-			url: 'evercookie_cache.php?name=' + name,
+			url: _ec_dir + 'evercookie_cache.php?name=' + name,
 			success: function(data) {
 				// put our cookie back
 				document.cookie = 'evercookie_cache=' + origvalue + '; expires=Tue, 31 Dec 2030 00:00:00 UTC; path=/';
@@ -333,7 +334,7 @@ this.evercookie_etag = function(name, value)
 		var img = new Image();
 		img.style.visibility = 'hidden';
 		img.style.position = 'absolute';
-		img.src = 'evercookie_etag.php?name=' + name;
+		img.src = _ec_dir + 'evercookie_etag.php?name=' + name;
 	}
 	else
 	{
@@ -344,7 +345,7 @@ this.evercookie_etag = function(name, value)
 		document.cookie = 'evercookie_etag=; expires=Mon, 20 Sep 2010 00:00:00 UTC; path=/';
 
 		$.ajax({
-			url: 'evercookie_etag.php?name=' + name,
+			url: _ec_dir + 'evercookie_etag.php?name=' + name,
 			success: function(data) {
 				// put our cookie back
 				document.cookie = 'evercookie_etag=' + origvalue + '; expires=Tue, 31 Dec 2030 00:00:00 UTC; path=/';
@@ -374,7 +375,7 @@ this.evercookie_lso = function(name, value)
 	var attributes       = {};
 	attributes.id        = "myswf";
 	attributes.name      = "myswf";
-	swfobject.embedSWF("evercookie.swf", "swfcontainer", "1", "1", "9.0.0", false, flashvars, params, attributes);
+	swfobject.embedSWF(_ec_dir + "evercookie.swf", "swfcontainer", "1", "1", "9.0.0", false, flashvars, params, attributes);
 }
 
 this.evercookie_png = function(name, value)
@@ -391,7 +392,7 @@ this.evercookie_png = function(name, value)
 			var img = new Image();
 			img.style.visibility = 'hidden';
 			img.style.position = 'absolute';
-			img.src = 'evercookie_png.php?name=' + name;
+			img.src = _ec_dir + 'evercookie_png.php?name=' + name;
 		}
 		else
 		{
@@ -411,7 +412,7 @@ this.evercookie_png = function(name, value)
 			var img = new Image();
 			img.style.visibility = 'hidden';
 			img.style.position = 'absolute';
-			img.src = 'evercookie_png.php?name=' + name;
+			img.src = _ec_dir + 'evercookie_png.php?name=' + name;
 			
 			img.onload = function()
 			{
