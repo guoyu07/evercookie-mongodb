@@ -20,7 +20,7 @@
         run: function(){
             var that = this;
             var create = 0;
-            that.ec.get("uid", function(best, all) {
+            that.ec.get("eid", function(best, all) {
                 if (typeof best == "undefined") {
                     create = 1;
                 } else {
